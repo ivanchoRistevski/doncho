@@ -55,7 +55,7 @@ class CategoriesController extends Controller
 
         Category::create($input);
 
-        return redirect('/categories/indexc')
+        return redirect('/categories/index')
             ->with('success','Successfully created a new Category');
 
     }

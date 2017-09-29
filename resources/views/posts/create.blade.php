@@ -6,49 +6,11 @@
 
 @section('content')
 
-    <script src="{{ URL::to('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-
-    <script>
-        var editor_config = {
-            path_absolute : "/",
-            selector: "textarea",
-            plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-                "searchreplace wordcount visualblocks visualchars code fullscreen",
-                "insertdatetime media nonbreaking save table contextmenu directionality",
-                "emoticons template paste textcolor colorpicker textpattern"
-            ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-            relative_urls: false,
-            file_browser_callback : function(field_name, url, type, win) {
-                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
-
-                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
-                if (type == 'image') {
-                    cmsURL = cmsURL + "&type=Images";
-                } else {
-                    cmsURL = cmsURL + "&type=Files";
-                }
-
-                tinyMCE.activeEditor.windowManager.open({
-                    file : cmsURL,
-                    title : 'Filemanager',
-                    width : x * 0.8,
-                    height : y * 0.8,
-                    resizable : "yes",
-                    close_previous : "no"
-                });
-            }
-        };
-
-        tinymce.init(editor_config);
-    </script>
 
 
 
 
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-sm-9 col-md-offset-1">
                 <div class="panel panel-default">
 
                     @if(count($errors))
@@ -78,9 +40,9 @@
 
                             <div class="form-group">
 
-                                <label for="featured_photo_path">Featured photo:</label>
+                                <label for="featured_photo">Featured photo:</label>
 
-                                <input type="file" name="featured_photo_path">
+                                <input type="file" name="featured_photo">
 
                             </div>
 
@@ -113,9 +75,9 @@
 
                             <div class="form-group">
 
-                                <label for="metadata">Metadata:</label>
+                                <label for="description">Metadata:</label>
 
-                                <input type="text" class="form-control" id="metadata" placeholder="metadata" name="metadata" value="{{ old('metadata') }}">
+                                <input type="text" class="form-control" id="description" placeholder="metadata" name="description" value="{{ old('description') }}">
 
                             </div>
 
@@ -163,5 +125,46 @@
 
                 </div>
             </div>
+
+
+            <script src="{{ URL::to('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
+            <script>
+                var editor_config = {
+                    path_absolute : "/",
+                    selector: "textarea",
+                    plugins: [
+                        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen",
+                        "insertdatetime media nonbreaking save table contextmenu directionality",
+                        "emoticons template paste textcolor colorpicker textpattern"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+                    relative_urls: false,
+                    file_browser_callback : function(field_name, url, type, win) {
+                        var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                        var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+                        var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+                        if (type === 'image') {
+                            cmsURL = cmsURL + "&type=Images";
+                        } else {
+                            cmsURL = cmsURL + "&type=Files";
+                        }
+
+                        tinyMCE.activeEditor.windowManager.open({
+                            file : cmsURL,
+                            title : 'Filemanager',
+                            width : x * 0.8,
+                            height : y * 0.8,
+                            resizable : "yes",
+                            close_previous : "no"
+                        });
+                    }
+                };
+
+                tinymce.init(editor_config);
+            </script>
+
 
 @endsection

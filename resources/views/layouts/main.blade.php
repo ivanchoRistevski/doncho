@@ -9,17 +9,36 @@
 
 <div class="container">
 
-    <header class="row">
+    <header class="row" style="background: black; max-height:180px">
 
-        @include('includes.banner')
+        <banner class="jumbotron">
 
-        @include('includes.nav')
+          @include('includes.banner')
 
+        </banner>
+
+        <nav class="navbar navbar-default navbar-static-top">
+
+          @include('includes.nav')
+
+        </nav>
     </header>
 
     <div id="main" class="row">
 
-        @yield('content')
+        <div id="content" class="col-sm-9">
+
+            @yield('content')
+
+        </div>
+
+        <div id="sidebar" class="col-sm-3">
+
+            @include('includes.sidebar')
+
+        </div>
+
+
 
     </div>
 
