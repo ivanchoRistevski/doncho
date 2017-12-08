@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{--<!DOCTYPE html>--}}
+{{--<html lang="{{ app()->getLocale() }}">--}}
+{{--<head>--}}
+    {{--<meta charset="utf-8">--}}
+    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
+    {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--<!-- CSRF Token -->--}}
+    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
-    <title>{{  'Allutomotive' }}</title>
+    {{--<title>{{  'Allutomotive' }}</title>--}}
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
-
-</head>
-<body>
+    {{--<!-- Styles -->--}}
+    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 
 
 
-
-            @include('includes.banner')
-
-            @include('includes.nav')
-
-                   @yield('content')
-
-            @include('includes.footer')
+{{--</head>--}}
+{{--<body>--}}
 
 
 
-    <!-- Scripts -->
-</body>
-</html>
+
+            {{--@include('includes.banner')--}}
+
+            {{--@include('includes.nav')--}}
+
+                   {{--@yield('content')--}}
+
+            {{--@include('includes.footer')--}}
+
+
+
+    {{--<!-- Scripts -->--}}
+{{--</body>--}}
+{{--</html>--}}
