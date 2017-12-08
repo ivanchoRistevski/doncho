@@ -6,14 +6,17 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "algolia/algoliasearch-client-php": "^1.23",
         "fideloper/proxy": "~3.3",
+        "filp/whoops": "^2.1",
+        "kyslik/column-sortable": "5.5.*",
         "laravel/framework": "5.5.*",
+        "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
-        "unisharp/laravel-filemanager": "^1.8"
+        "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {
-        "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~6.0"

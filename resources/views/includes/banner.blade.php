@@ -1,17 +1,11 @@
-<div class="col-md-12" style="max-height:120px;">
+<div class="banner">
 
-    <div class="col-md-4">
+    <div class="col-lg-12" style="margin-top: 20px;">
 
-        <img src="{{ URL::to('images/1/logo.jpg') }}"/>
+        @include('includes.share')
+
+        <img src="{{ URL::to('images/1/BANNER.jpg') }}"/>
 
     </div>
-
-
-
-    <div class="col-md-8">
-
-        <img src="{{ URL::to('images/1/baner1.jpg') }}" />
-    </div>
-
 
 </div>

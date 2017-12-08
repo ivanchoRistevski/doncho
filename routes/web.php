@@ -29,4 +29,6 @@ Route::post('/posts','PostsController@upload');
 
 Route::get('/','PostsController@index');
 
+Route::get('/{category}', 'CategoriesController@show');
 
+Route::get('/{category}/{post}', 'PostsController@show');

@@ -10,7 +10,7 @@
 
 
 
-            <div class="col-sm-9 col-md-offset-1">
+            <div class="col-lg-14">
                 <div class="panel panel-default">
 
                     @if(count($errors))
@@ -49,9 +49,9 @@
 
                             <div class="form-group">
 
-                                <label for="section_id">Choose a Section:</label>
+                                <label for="category_id">Choose a Section:</label>
 
-                                <select name="section_id" id="section_id" class="form-control">
+                                <select name="category_id" id="category_id" class="form-control">
 
                                     <option value="">Choose one</option>
 
@@ -75,9 +75,9 @@
 
                             <div class="form-group">
 
-                                <label for="description">Metadata:</label>
+                                <label for="description">Description:</label>
 
-                                <input type="text" class="form-control" id="description" placeholder="metadata" name="description" value="{{ old('description') }}">
+                                <input type="text" class="form-control" id="description" placeholder="description" name="description" value="{{ old('description') }}">
 
                             </div>
 
@@ -127,7 +127,8 @@
             </div>
 
 
-            <script src="{{ URL::to('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.6/tinymce.min.js"></script>
 
             <script>
                 var editor_config = {

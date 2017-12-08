@@ -7,40 +7,20 @@
 </head>
 <body>
 
-<div class="container">
-
-    <header class="row" style="background: black; max-height:180px">
-
-        <banner class="jumbotron">
-
-          @include('includes.banner')
-
-        </banner>
-
-        <nav class="navbar navbar-default navbar-static-top">
-
-          @include('includes.nav')
-
-        </nav>
-    </header>
-
-    <div id="main" class="row">
-
-        <div id="content" class="col-sm-9">
-
-            @yield('content')
-
+   @include('includes.nav')
+   <div class="clear"></div>
+    <div class="main-container">
+        <div id="main" class="row">
+            <div id="content" class="col-sm-9 left-side-wrapper">
+                @yield('content')
+            </div>
+            <div id="sidebar" class="col-sm-3 right-small top">
+                @include('includes.searchbar')
+            </div>
+            <div id="sidebar" class="col-sm-3 right-small bottom">
+                @include('includes.sidebar')
+            </div>
         </div>
-
-        <div id="sidebar" class="col-sm-3">
-
-            @include('includes.sidebar')
-
-        </div>
-
-
-
-    </div>
 
     <footer class="row">
 

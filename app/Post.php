@@ -4,11 +4,15 @@ namespace Allutomotive;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Kyslik\ColumnSortable\Sortable;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     //
     use Notifiable;
+    use Sortable;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +21,7 @@ class Post extends Model
      */
 
     protected $fillable = [
-        'title', 'body', 'user_id','category_id','featured_photo','importance','description',
+        'title', 'body', 'user_id','category_id','featured_photo','importance','description','keywords',
     ];
 
     public function images(){
@@ -31,7 +35,10 @@ class Post extends Model
     public function path()
     {
 
-        return "/posts/{$this->id}";
+        $check = Category::all()->where('check->id', '===','this->id');
+
+                return "/{$check->name}/{$this->title}";
+
 
     }
 
@@ -41,4 +48,7 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
 
     }
+
+
+
 }

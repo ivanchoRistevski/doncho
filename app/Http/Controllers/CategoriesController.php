@@ -3,6 +3,7 @@
 namespace Allutomotive\Http\Controllers;
 
 use Allutomotive\Category;
+use Allutomotive\Post;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -12,7 +13,7 @@ class CategoriesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except('show','index');
     }
 
     /**
@@ -20,12 +21,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index($category){
 
-        $categories = Category::latest()->get();
+        return view('categories.index', compact('category'));
 
-        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -66,12 +65,16 @@ class CategoriesController extends Controller
      * @param  \Allutomotive\Category  $cathegory
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Category $category)
     {
 
-        $category = posts()->latest()->get();
+        $posts = Post::latest()->paginate(10);
 
-        return view('categories.show',compact('category'));
+        return view('categories.show',[
+            'category' => $category,
+            'posts' => $posts
+
+        ]);
     }
 
     /**

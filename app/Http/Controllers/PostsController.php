@@ -3,7 +3,10 @@
 namespace Allutomotive\Http\Controllers;
 
 use Allutomotive\Post;
+use ArrayObject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use SplObjectStorage;
 
 class PostsController extends Controller
 {
@@ -13,7 +16,6 @@ class PostsController extends Controller
     {
 
         $this->middleware('auth')->except(['index', 'show']);
-
     }
 
     /**
@@ -23,9 +25,28 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
 
-        return view('posts.index',compact('posts'));
+        $p2 = (Post::latest()->take(19)->get());
+
+        $p1 = (Post::latest()->where('importance', '!=', 0)->take(4)->get());
+
+        return view('posts.index', [
+
+            'p2' => $p2,
+            'p1' => $p1
+
+        ]);
+
+        /*
+
+        $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+        $offices = Office::where('name','like','%'.$search.'%')
+            ->orderBy('name')
+            ->paginate(20);
+
+        return view('offices.index',compact('offices'));
+        */
     }
 
     /**
